@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option csharp_namespace = "svctto.common";
+
+package svctto;
+
+service TarefasService {
+  rpc Listar (TarefasRequest) returns (stream Tarefa);
+}
+
+message TarefasRequest {
+  int32 codigoCliente = 1;
+}
+
+message Tarefa {
+    int32 codigoCliente = 1;
+    string nome = 2;
+    string descricao = 3;
+    string referencia = 4;
+}
